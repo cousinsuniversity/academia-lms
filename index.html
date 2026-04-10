@@ -11,7 +11,7 @@
         <div class="logo">Academia LMS</div>
         <ul class="nav-links">
             <li><a href="#" class="nav-item active" data-target="dashboard-view">Dashboard</a></li>
-            <li><a href="#" class="nav-item" data-target="courses-view">Courses</a></li>
+            <li><a href="#" class="nav-item" data-target="courses-view">Course Catalog</a></li>
             <li><a href="#" class="nav-item" data-target="grades-view">Grades</a></li>
             <li><a href="#" class="nav-item" data-target="calendar-view">Calendar</a></li>
             <li><a href="#" class="nav-item" data-target="settings-view">Settings</a></li>
@@ -28,23 +28,23 @@
         </header>
 
         <section id="dashboard-view" class="view-section active">
-            <h1>Your Courses</h1>
+            <h1>Your Enrolled Courses</h1>
             <div class="course-grid">
-                <div class="course-card">
+                <div class="course-card" data-color="bg-blue">
                     <div class="card-image bg-blue"></div>
                     <div class="card-content">
                         <h3>IS107: IS Strategy</h3>
                         <p>Instructor: Dr. Smith</p>
                     </div>
                 </div>
-                <div class="course-card">
+                <div class="course-card" data-color="bg-purple">
                     <div class="card-image bg-purple"></div>
                     <div class="card-content">
                         <h3>IS105: Enterprise Architecture</h3>
                         <p>Instructor: Prof. Johnson</p>
                     </div>
                 </div>
-                <div class="course-card">
+                <div class="course-card" data-color="bg-green">
                     <div class="card-image bg-green"></div>
                     <div class="card-content">
                         <h3>Contemporary Arts</h3>
@@ -54,29 +54,139 @@
             </div>
         </section>
 
+        <section id="single-course-view" class="view-section">
+            <button class="back-btn" id="back-to-dashboard">← Back to Dashboard</button>
+            <div class="course-banner" id="active-course-banner">
+                <h2 id="active-course-title">Course Title</h2>
+                <p>Term 3 - 2026 | MMCM Modular System</p>
+            </div>
+            
+            <div class="course-layout">
+                <div class="course-main">
+                    <div class="course-search">
+                        <input type="text" placeholder="Search Course Content..." class="content-search">
+                    </div>
+                    
+                    <div class="modules-container">
+                        <div class="module-item interactive-element" data-title="Course Preliminaries" data-type="module">
+                            <div class="module-icon">⚠️</div>
+                            <div class="module-info">
+                                <h4>Course Preliminaries [Start Here]</h4>
+                                <p>This section contains the course introduction, syllabus, and instructor introduction.</p>
+                            </div>
+                            <div class="module-status">
+                                <span>14 of 14 completed</span>
+                                <span class="status-icon">✔️</span>
+                            </div>
+                        </div>
+
+                        <div class="module-item interactive-element" data-title="Faculty Evaluation Survey" data-type="survey">
+                            <div class="module-icon">📋</div>
+                            <div class="module-info">
+                                <h4>Faculty Evaluation Survey</h4>
+                                <p>Share your feedback on your academic and campus experiences.</p>
+                            </div>
+                            <div class="module-status">
+                                <span>2 of 2 completed</span>
+                                <span class="status-icon">✔️</span>
+                            </div>
+                        </div>
+
+                        <div class="module-item interactive-element" data-title="Module 0: Guidelines" data-type="module">
+                            <div class="module-icon">🔬</div>
+                            <div class="module-info">
+                                <h4>Module 0: Course Guidelines and Preliminaries</h4>
+                                <p>Preliminary Formative Assessments</p>
+                            </div>
+                            <div class="module-status progress-status">
+                                <span>2 of 5 started</span>
+                                <div class="progress-track"><div class="progress-fill" style="width: 40%;"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="module-item interactive-element" data-title="Module 1: Foundations" data-type="module">
+                            <div class="module-icon">🏛️</div>
+                            <div class="module-info">
+                                <h4>MODULE 1</h4>
+                                <p>Historical foundations and core principles.</p>
+                            </div>
+                            <div class="module-status progress-status">
+                                <span>3 of 9 started</span>
+                                <div class="progress-track"><div class="progress-fill" style="width: 33%;"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="module-item interactive-element" data-title="Module 2: Advanced Concepts" data-type="module">
+                            <div class="module-icon">🧑‍🔬</div>
+                            <div class="module-info">
+                                <h4>MODULE 2</h4>
+                                <p>Content not yet available.</p>
+                            </div>
+                            <div class="module-status locked">
+                                <span>Locked</span>
+                                <span class="status-icon">🔒</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-sidebar">
+                    <div class="sidebar-card">
+                        <h3>Course Faculty</h3>
+                        <div class="faculty-info interactive-element" data-title="Instructor Profile" data-type="profile">
+                            <div class="faculty-avatar"></div>
+                            <div>
+                                <p id="active-course-instructor" class="faculty-name">Instructor Name</p>
+                                <p class="faculty-role">INSTRUCTOR</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3>Details & Actions</h3>
+                        <ul class="action-links">
+                            <li class="interactive-element" data-title="Class Roster" data-type="action">
+                                <strong>👥 Roster</strong>
+                                <span>View everyone in your course</span>
+                            </li>
+                            <li class="interactive-element" data-title="Course Description" data-type="action">
+                                <strong>ℹ️ Course Description</strong>
+                                <span>View the course description</span>
+                            </li>
+                            <li class="interactive-element" data-title="Attendance Record" data-type="action">
+                                <strong>📅 Attendance</strong>
+                                <span>View your attendance</span>
+                            </li>
+                            <li class="interactive-element" data-title="Books & Tools" data-type="action">
+                                <strong>🔧 Books & Tools</strong>
+                                <span>View course & institution tools</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="courses-view" class="view-section">
-            <h1>Course Catalog & Materials</h1>
+            <h1>Course Catalog</h1>
+            <div class="course-search">
+                <input type="text" placeholder="Search available courses to enroll..." class="content-search">
+                <button class="action-btn">Search</button>
+            </div>
             <div class="course-list">
                 <div class="list-item">
                     <div class="list-info">
-                        <h3>IS107: IS Strategy</h3>
-                        <p>Progress: 75% | Next Assignment: Strategy Report</p>
+                        <h3>CS201: Data Structures</h3>
+                        <p>Credits: 3 | Department: Computer Science</p>
                     </div>
-                    <button class="action-btn module-btn">View Modules</button>
+                    <button class="action-btn interactive-element" data-title="Enrollment" data-type="catalog">Enroll Now</button>
                 </div>
                 <div class="list-item">
                     <div class="list-info">
-                        <h3>IS105: Enterprise Architecture</h3>
-                        <p>Progress: 40% | Next Assignment: Arch Diagram</p>
+                        <h3>MATH302: Quantitative Methods</h3>
+                        <p>Credits: 3 | Department: Mathematics</p>
                     </div>
-                    <button class="action-btn module-btn">View Modules</button>
-                </div>
-                <div class="list-item">
-                    <div class="list-info">
-                        <h3>Contemporary Arts</h3>
-                        <p>Progress: 90% | Next Assignment: Final Essay</p>
-                    </div>
-                    <button class="action-btn module-btn">View Modules</button>
+                    <button class="action-btn interactive-element" data-title="Enrollment" data-type="catalog">Enroll Now</button>
                 </div>
             </div>
         </section>
@@ -92,6 +202,7 @@
                             <th>Midterm</th>
                             <th>Finals</th>
                             <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -101,6 +212,7 @@
                             <td>92%</td>
                             <td>Pending</td>
                             <td><span class="status good">Excellent</span></td>
+                            <td><button class="action-btn interactive-element" data-title="Grade Details IS107" data-type="grades">View Rubric</button></td>
                         </tr>
                         <tr>
                             <td>IS105</td>
@@ -108,6 +220,7 @@
                             <td>88%</td>
                             <td>Pending</td>
                             <td><span class="status good">Good</span></td>
+                            <td><button class="action-btn interactive-element" data-title="Grade Details IS105" data-type="grades">View Rubric</button></td>
                         </tr>
                         <tr>
                             <td>ART101</td>
@@ -115,6 +228,7 @@
                             <td>95%</td>
                             <td>Pending</td>
                             <td><span class="status good">Excellent</span></td>
+                            <td><button class="action-btn interactive-element" data-title="Grade Details ART101" data-type="grades">View Rubric</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -137,36 +251,36 @@
                 <div class="calendar-day empty"></div>
                 <div class="calendar-day empty"></div>
                 <div class="calendar-day empty"></div>
-                <div class="calendar-day">1</div>
-                <div class="calendar-day">2</div>
-                <div class="calendar-day">3</div>
-                <div class="calendar-day">4</div>
-                <div class="calendar-day">5</div>
-                <div class="calendar-day">6</div>
-                <div class="calendar-day">7</div>
-                <div class="calendar-day">8</div>
-                <div class="calendar-day">9</div>
-                <div class="calendar-day active-day">10<br><small>IS105 Due</small></div>
-                <div class="calendar-day">11</div>
-                <div class="calendar-day">12</div>
-                <div class="calendar-day">13</div>
-                <div class="calendar-day">14</div>
-                <div class="calendar-day">15<br><small>IS107 Quiz</small></div>
-                <div class="calendar-day">16</div>
-                <div class="calendar-day">17</div>
-                <div class="calendar-day">18</div>
-                <div class="calendar-day">19</div>
-                <div class="calendar-day">20</div>
-                <div class="calendar-day">21</div>
-                <div class="calendar-day">22</div>
-                <div class="calendar-day">23</div>
-                <div class="calendar-day">24</div>
-                <div class="calendar-day">25</div>
-                <div class="calendar-day">26</div>
-                <div class="calendar-day">27</div>
-                <div class="calendar-day">28</div>
-                <div class="calendar-day">29</div>
-                <div class="calendar-day">30</div>
+                <div class="calendar-day interactive-element" data-title="April 1" data-type="calendar">1</div>
+                <div class="calendar-day interactive-element" data-title="April 2" data-type="calendar">2</div>
+                <div class="calendar-day interactive-element" data-title="April 3" data-type="calendar">3</div>
+                <div class="calendar-day interactive-element" data-title="April 4" data-type="calendar">4</div>
+                <div class="calendar-day interactive-element" data-title="April 5" data-type="calendar">5</div>
+                <div class="calendar-day interactive-element" data-title="April 6" data-type="calendar">6</div>
+                <div class="calendar-day interactive-element" data-title="April 7" data-type="calendar">7</div>
+                <div class="calendar-day interactive-element" data-title="April 8" data-type="calendar">8</div>
+                <div class="calendar-day interactive-element" data-title="April 9" data-type="calendar">9</div>
+                <div class="calendar-day active-day interactive-element" data-title="April 10 Event" data-type="calendar">10<br><small>IS105 Due</small></div>
+                <div class="calendar-day interactive-element" data-title="April 11" data-type="calendar">11</div>
+                <div class="calendar-day interactive-element" data-title="April 12" data-type="calendar">12</div>
+                <div class="calendar-day interactive-element" data-title="April 13" data-type="calendar">13</div>
+                <div class="calendar-day interactive-element" data-title="April 14" data-type="calendar">14</div>
+                <div class="calendar-day interactive-element" data-title="April 15 Event" data-type="calendar">15<br><small>IS107 Quiz</small></div>
+                <div class="calendar-day interactive-element" data-title="April 16" data-type="calendar">16</div>
+                <div class="calendar-day interactive-element" data-title="April 17" data-type="calendar">17</div>
+                <div class="calendar-day interactive-element" data-title="April 18" data-type="calendar">18</div>
+                <div class="calendar-day interactive-element" data-title="April 19" data-type="calendar">19</div>
+                <div class="calendar-day interactive-element" data-title="April 20" data-type="calendar">20</div>
+                <div class="calendar-day interactive-element" data-title="April 21" data-type="calendar">21</div>
+                <div class="calendar-day interactive-element" data-title="April 22" data-type="calendar">22</div>
+                <div class="calendar-day interactive-element" data-title="April 23" data-type="calendar">23</div>
+                <div class="calendar-day interactive-element" data-title="April 24" data-type="calendar">24</div>
+                <div class="calendar-day interactive-element" data-title="April 25" data-type="calendar">25</div>
+                <div class="calendar-day interactive-element" data-title="April 26" data-type="calendar">26</div>
+                <div class="calendar-day interactive-element" data-title="April 27" data-type="calendar">27</div>
+                <div class="calendar-day interactive-element" data-title="April 28" data-type="calendar">28</div>
+                <div class="calendar-day interactive-element" data-title="April 29" data-type="calendar">29</div>
+                <div class="calendar-day interactive-element" data-title="April 30" data-type="calendar">30</div>
             </div>
         </section>
 
@@ -194,14 +308,17 @@
         </section>
     </main>
 
-    <div id="course-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2 id="modal-title">Course Title</h2>
-            <p id="modal-instructor">Instructor</p>
-            <div class="modal-body">
-                <p>Welcome to the course module. Access your syllabus, assignments, and upcoming lectures here.</p>
-                <button class="action-btn" id="enter-course-btn">Enter Course</button>
+    <div id="custom-dialog-overlay" class="dialog-overlay">
+        <div class="custom-dialog-box">
+            <div class="dialog-header">
+                <h3 id="dialog-title">Notice</h3>
+                <button class="dialog-close-icon">&times;</button>
+            </div>
+            <div class="dialog-body">
+                <p id="dialog-message">Content goes here.</p>
+            </div>
+            <div class="dialog-footer">
+                <button id="dialog-action-btn" class="action-btn">Confirm</button>
             </div>
         </div>
     </div>
