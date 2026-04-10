@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia LMS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="sidebar" id="sidebar">
+        <div class="logo">Academia LMS</div>
+        <ul class="nav-links">
+            <li><a href="#" class="nav-item active" data-target="dashboard-view">Dashboard</a></li>
+            <li><a href="#" class="nav-item" data-target="courses-view">Courses</a></li>
+            <li><a href="#" class="nav-item" data-target="grades-view">Grades</a></li>
+            <li><a href="#" class="nav-item" data-target="calendar-view">Calendar</a></li>
+            <li><a href="#" class="nav-item" data-target="settings-view">Settings</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content" id="main-content">
+        <header>
+            <button id="toggle-btn" class="toggle-btn">☰</button>
+            <div class="header-actions">
+                <button id="dark-mode-btn" class="icon-btn">🌓</button>
+                <div class="user-profile">Welcome, Dennis</div>
+            </div>
+        </header>
+
+        <section id="dashboard-view" class="view-section active">
+            <h1>Your Courses</h1>
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="card-image bg-blue"></div>
+                    <div class="card-content">
+                        <h3>IS107: IS Strategy</h3>
+                        <p>Instructor: Dr. Smith</p>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="card-image bg-purple"></div>
+                    <div class="card-content">
+                        <h3>IS105: Enterprise Architecture</h3>
+                        <p>Instructor: Prof. Johnson</p>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="card-image bg-green"></div>
+                    <div class="card-content">
+                        <h3>Contemporary Arts</h3>
+                        <p>Instructor: Ms. Davis</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="courses-view" class="view-section">
+            <h1>Course Catalog & Materials</h1>
+            <div class="course-list">
+                <div class="list-item">
+                    <div class="list-info">
+                        <h3>IS107: IS Strategy</h3>
+                        <p>Progress: 75% | Next Assignment: Strategy Report</p>
+                    </div>
+                    <button class="action-btn module-btn">View Modules</button>
+                </div>
+                <div class="list-item">
+                    <div class="list-info">
+                        <h3>IS105: Enterprise Architecture</h3>
+                        <p>Progress: 40% | Next Assignment: Arch Diagram</p>
+                    </div>
+                    <button class="action-btn module-btn">View Modules</button>
+                </div>
+                <div class="list-item">
+                    <div class="list-info">
+                        <h3>Contemporary Arts</h3>
+                        <p>Progress: 90% | Next Assignment: Final Essay</p>
+                    </div>
+                    <button class="action-btn module-btn">View Modules</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="grades-view" class="view-section">
+            <h1>Academic Grades</h1>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Course Name</th>
+                            <th>Midterm</th>
+                            <th>Finals</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>IS107</td>
+                            <td>IS Strategy</td>
+                            <td>92%</td>
+                            <td>Pending</td>
+                            <td><span class="status good">Excellent</span></td>
+                        </tr>
+                        <tr>
+                            <td>IS105</td>
+                            <td>Enterprise Architecture</td>
+                            <td>88%</td>
+                            <td>Pending</td>
+                            <td><span class="status good">Good</span></td>
+                        </tr>
+                        <tr>
+                            <td>ART101</td>
+                            <td>Contemporary Arts</td>
+                            <td>95%</td>
+                            <td>Pending</td>
+                            <td><span class="status good">Excellent</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="calendar-view" class="view-section">
+            <h1>Academic Calendar</h1>
+            <div class="calendar-header">
+                <h2>April 2026</h2>
+            </div>
+            <div class="calendar-grid">
+                <div class="cal-header-day">Sun</div>
+                <div class="cal-header-day">Mon</div>
+                <div class="cal-header-day">Tue</div>
+                <div class="cal-header-day">Wed</div>
+                <div class="cal-header-day">Thu</div>
+                <div class="cal-header-day">Fri</div>
+                <div class="cal-header-day">Sat</div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day">1</div>
+                <div class="calendar-day">2</div>
+                <div class="calendar-day">3</div>
+                <div class="calendar-day">4</div>
+                <div class="calendar-day">5</div>
+                <div class="calendar-day">6</div>
+                <div class="calendar-day">7</div>
+                <div class="calendar-day">8</div>
+                <div class="calendar-day">9</div>
+                <div class="calendar-day active-day">10<br><small>IS105 Due</small></div>
+                <div class="calendar-day">11</div>
+                <div class="calendar-day">12</div>
+                <div class="calendar-day">13</div>
+                <div class="calendar-day">14</div>
+                <div class="calendar-day">15<br><small>IS107 Quiz</small></div>
+                <div class="calendar-day">16</div>
+                <div class="calendar-day">17</div>
+                <div class="calendar-day">18</div>
+                <div class="calendar-day">19</div>
+                <div class="calendar-day">20</div>
+                <div class="calendar-day">21</div>
+                <div class="calendar-day">22</div>
+                <div class="calendar-day">23</div>
+                <div class="calendar-day">24</div>
+                <div class="calendar-day">25</div>
+                <div class="calendar-day">26</div>
+                <div class="calendar-day">27</div>
+                <div class="calendar-day">28</div>
+                <div class="calendar-day">29</div>
+                <div class="calendar-day">30</div>
+            </div>
+        </section>
+
+        <section id="settings-view" class="view-section">
+            <h1>Account Settings</h1>
+            <form id="settings-form" class="settings-form">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" value="Dennis Isaiah Lastimoso">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" value="dennis@student.mmcm.edu.ph">
+                </div>
+                <div class="form-group">
+                    <label for="program">Degree Program</label>
+                    <input type="text" id="program" value="Computer Science" readonly>
+                </div>
+                <div class="form-group toggle-group">
+                    <label for="notifications">Email Notifications</label>
+                    <input type="checkbox" id="notifications" checked>
+                </div>
+                <button type="submit" class="action-btn">Save Changes</button>
+            </form>
+        </section>
+    </main>
+
+    <div id="course-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-title">Course Title</h2>
+            <p id="modal-instructor">Instructor</p>
+            <div class="modal-body">
+                <p>Welcome to the course module. Access your syllabus, assignments, and upcoming lectures here.</p>
+                <button class="action-btn" id="enter-course-btn">Enter Course</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
