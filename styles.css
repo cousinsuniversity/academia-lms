@@ -172,6 +172,237 @@ h1 {
     transition: color 0.3s;
 }
 
+.back-btn {
+    background: none;
+    border: none;
+    color: #4a90e2;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: color 0.2s;
+}
+
+.back-btn:hover {
+    color: #357abd;
+}
+
+.course-banner {
+    padding: 40px 30px;
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+}
+
+.course-banner h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.course-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.course-main {
+    flex: 3;
+}
+
+.course-sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.course-search {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.content-search {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s, background-color 0.3s, color 0.3s;
+}
+
+.content-search:focus {
+    border-color: #4a90e2;
+}
+
+.modules-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.module-item {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+    border: 1px solid transparent;
+}
+
+.module-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-color: #e0e0e0;
+}
+
+.module-icon {
+    font-size: 2rem;
+    background: #f4f6f9;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.module-info {
+    flex: 1;
+}
+
+.module-info h4 {
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    transition: color 0.3s;
+}
+
+.module-info p {
+    color: #666;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.module-status {
+    text-align: right;
+    font-size: 0.85rem;
+    color: #555;
+    min-width: 120px;
+    transition: color 0.3s;
+}
+
+.progress-status {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-end;
+}
+
+.progress-track {
+    width: 100px;
+    height: 6px;
+    background: #eee;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #2ecc71;
+}
+
+.sidebar-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: background-color 0.3s;
+}
+
+.sidebar-card h3 {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.faculty-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.faculty-info:hover {
+    background-color: #f4f6f9;
+}
+
+.faculty-avatar {
+    width: 45px;
+    height: 45px;
+    background: #4a90e2;
+    border-radius: 50%;
+}
+
+.faculty-name {
+    font-weight: 600;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.faculty-role {
+    font-size: 0.8rem;
+    color: #777;
+    transition: color 0.3s;
+}
+
+.action-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.action-links li {
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.action-links li:hover {
+    background-color: #f4f6f9;
+}
+
+.action-links strong {
+    color: #333;
+    font-size: 0.95rem;
+    margin-bottom: 3px;
+    transition: color 0.3s;
+}
+
+.action-links span {
+    color: #777;
+    font-size: 0.8rem;
+    transition: color 0.3s;
+}
+
 .course-list {
     display: flex;
     flex-direction: column;
@@ -252,12 +483,19 @@ th {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.02);
     font-weight: 500;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.calendar-day:hover:not(.empty) {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .calendar-day.empty {
     background: transparent;
     box-shadow: none;
+    cursor: default;
 }
 
 .calendar-day small {
@@ -318,64 +556,91 @@ th {
     height: 18px;
 }
 
-.modal {
+.dialog-overlay {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 2000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
     opacity: 0;
+    backdrop-filter: blur(3px);
     transition: opacity 0.3s ease;
 }
 
-.modal.show {
+.dialog-overlay.show {
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 1;
 }
 
-.modal-content {
+.custom-dialog-box {
     background-color: white;
-    padding: 30px;
-    border-radius: 10px;
+    border-radius: 12px;
     width: 90%;
-    max-width: 500px;
-    transform: translateY(-30px);
-    transition: transform 0.3s ease, background-color 0.3s;
-    position: relative;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    max-width: 450px;
+    transform: translateY(-30px) scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    overflow: hidden;
 }
 
-.modal.show .modal-content {
-    transform: translateY(0);
+.dialog-overlay.show .custom-dialog-box {
+    transform: translateY(0) scale(1);
 }
 
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #777;
-    transition: color 0.2s;
+.dialog-header {
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    background-color: #fafbfc;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
-.close-btn:hover {
+.dialog-header h3 {
+    margin: 0;
     color: #333;
+    font-size: 1.2rem;
+    transition: color 0.3s;
 }
 
-.modal-body {
-    margin-top: 20px;
+.dialog-close-icon {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s, transform 0.2s;
 }
 
-.modal-body p {
-    margin-bottom: 20px;
+.dialog-close-icon:hover {
+    color: #e74c3c;
+    transform: rotate(90deg);
+}
+
+.dialog-body {
+    padding: 30px 25px;
+}
+
+.dialog-body p {
     color: #555;
-    line-height: 1.5;
+    line-height: 1.6;
+    margin: 0;
+    transition: color 0.3s;
+}
+
+.dialog-footer {
+    padding: 15px 25px;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #eee;
+    background-color: #fafbfc;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .action-btn {
@@ -383,14 +648,19 @@ th {
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.2s;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.1s;
 }
 
 .action-btn:hover {
     background-color: #357abd;
+}
+
+.action-btn:active {
+    transform: scale(0.98);
 }
 
 body.dark-mode {
@@ -400,12 +670,20 @@ body.dark-mode {
 
 body.dark-mode header,
 body.dark-mode .course-card,
-body.dark-mode .modal-content,
 body.dark-mode .list-item,
 body.dark-mode .table-container,
 body.dark-mode .calendar-day,
-body.dark-mode .settings-form {
+body.dark-mode .settings-form,
+body.dark-mode .module-item,
+body.dark-mode .sidebar-card,
+body.dark-mode .custom-dialog-box {
     background-color: #1e1e1e;
+}
+
+body.dark-mode .dialog-header,
+body.dark-mode .dialog-footer {
+    background-color: #252525;
+    border-color: #333;
 }
 
 body.dark-mode .calendar-day.empty {
@@ -423,12 +701,14 @@ body.dark-mode th {
     border-bottom: 1px solid #444;
 }
 
-body.dark-mode td, body.dark-mode th {
+body.dark-mode td, body.dark-mode th,
+body.dark-mode .sidebar-card h3 {
     border-bottom: 1px solid #333;
 }
 
 body.dark-mode .form-group input[type="text"],
-body.dark-mode .form-group input[type="email"] {
+body.dark-mode .form-group input[type="email"],
+body.dark-mode .content-search {
     background-color: #2a2a40;
     border-color: #444;
     color: #fff;
@@ -436,28 +716,45 @@ body.dark-mode .form-group input[type="email"] {
 
 body.dark-mode h1,
 body.dark-mode .card-content h3,
-body.dark-mode #modal-title,
 body.dark-mode .list-info h3,
 body.dark-mode .cal-header-day,
-body.dark-mode .form-group label {
+body.dark-mode .form-group label,
+body.dark-mode .module-info h4,
+body.dark-mode .sidebar-card h3,
+body.dark-mode .faculty-name,
+body.dark-mode .action-links strong,
+body.dark-mode .dialog-header h3 {
     color: #ffffff;
 }
 
 body.dark-mode .card-content p,
-body.dark-mode .modal-body p,
-body.dark-mode #modal-instructor,
-body.dark-mode .list-info p {
+body.dark-mode .list-info p,
+body.dark-mode .module-info p,
+body.dark-mode .module-status,
+body.dark-mode .faculty-role,
+body.dark-mode .action-links span,
+body.dark-mode .dialog-body p {
     color: #aaaaaa;
 }
 
-body.dark-mode .toggle-btn, 
-body.dark-mode .icon-btn,
-body.dark-mode .close-btn {
-    color: #e0e0e0;
+body.dark-mode .module-item:hover,
+body.dark-mode .faculty-info:hover,
+body.dark-mode .action-links li:hover {
+    background-color: #2a2a2a;
+    border-color: #444;
 }
 
-body.dark-mode .close-btn:hover {
-    color: #ffffff;
+body.dark-mode .module-icon {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .progress-track {
+    background-color: #333;
+}
+
+body.dark-mode .toggle-btn, 
+body.dark-mode .icon-btn {
+    color: #e0e0e0;
 }
 
 @keyframes fadeInUp {
