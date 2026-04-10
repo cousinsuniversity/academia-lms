@@ -4,14 +4,38 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggleBtn = document.getElementById("toggle-btn");
     const darkModeBtn = document.getElementById("dark-mode-btn");
     
-    const modal = document.getElementById("course-modal");
-    const closeBtn = document.querySelector(".close-btn");
-    const modalTitle = document.getElementById("modal-title");
-    const modalInstructor = document.getElementById("modal-instructor");
-    const enterCourseBtn = document.getElementById("enter-course-btn");
-    
     const navItems = document.querySelectorAll(".nav-item");
     const viewSections = document.querySelectorAll(".view-section");
+
+    const dialogOverlay = document.getElementById("custom-dialog-overlay");
+    const dialogTitle = document.getElementById("dialog-title");
+    const dialogMessage = document.getElementById("dialog-message");
+    const dialogCloseBtn = document.querySelector(".dialog-close-icon");
+    const dialogActionBtn = document.getElementById("dialog-action-btn");
+
+    const showDialog = (title, message) => {
+        dialogTitle.innerText = title;
+        dialogMessage.innerText = message;
+        dialogOverlay.style.display = "flex";
+        setTimeout(() => {
+            dialogOverlay.classList.add("show");
+        }, 10);
+    };
+
+    const closeDialog = () => {
+        dialogOverlay.classList.remove("show");
+        setTimeout(() => {
+            dialogOverlay.style.display = "none";
+        }, 300);
+    };
+
+    dialogCloseBtn.addEventListener("click", closeDialog);
+    dialogActionBtn.addEventListener("click", closeDialog);
+    dialogOverlay.addEventListener("click", (e) => {
+        if (e.target === dialogOverlay) {
+            closeDialog();
+        }
+    });
 
     const switchView = (targetId) => {
         navItems.forEach(item => item.classList.remove("active"));
@@ -52,51 +76,72 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, { threshold: 0.1 });
 
+    const activeCourseTitle = document.getElementById('active-course-title');
+    const activeCourseInstructor = document.getElementById('active-course-instructor');
+    const activeCourseBanner = document.getElementById('active-course-banner');
+
     cards.forEach(card => {
         card.style.animationPlayState = 'paused';
         observer.observe(card);
 
         card.addEventListener("click", () => {
             const title = card.querySelector("h3").innerText;
-            const instructor = card.querySelector("p").innerText;
+            const instructor = card.querySelector("p").innerText.replace("Instructor: ", "");
+            const colorClass = card.getAttribute("data-color");
             
-            modalTitle.innerText = title;
-            modalInstructor.innerText = instructor;
+            activeCourseTitle.innerText = title;
+            activeCourseInstructor.innerText = instructor;
             
-            modal.style.display = "flex";
-            setTimeout(() => {
-                modal.classList.add("show");
-            }, 10);
+            activeCourseBanner.className = "course-banner";
+            activeCourseBanner.classList.add(colorClass);
+
+            switchView("single-course-view");
         });
     });
 
-    const closeModal = () => {
-        modal.classList.remove("show");
-        setTimeout(() => {
-            modal.style.display = "none";
-        }, 300);
-    };
+    const backToDashboardBtn = document.getElementById("back-to-dashboard");
+    if(backToDashboardBtn) {
+        backToDashboardBtn.addEventListener("click", () => {
+            switchView("dashboard-view");
+        });
+    }
 
-    closeBtn.addEventListener("click", closeModal);
-
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
-
-    enterCourseBtn.addEventListener("click", () => {
-        closeModal();
-        setTimeout(() => {
-            switchView("courses-view");
-        }, 300);
-    });
-
-    const moduleBtns = document.querySelectorAll(".module-btn");
-    moduleBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
-            const courseName = btn.parentElement.querySelector("h3").innerText;
-            alert(`Opening modules for ${courseName}`);
+    const interactiveElements = document.querySelectorAll(".interactive-element");
+    interactiveElements.forEach(el => {
+        el.addEventListener("click", (e) => {
+            if(!el.classList.contains('course-card')) {
+                e.stopPropagation();
+                const type = el.getAttribute("data-type");
+                const title = el.getAttribute("data-title") || "Feature Accessed";
+                
+                let msg = "";
+                switch(type) {
+                    case "module":
+                        msg = `Opening content for ${title}. Materials will be displayed in the document viewer.`;
+                        break;
+                    case "survey":
+                        msg = `Redirecting to the evaluation portal for ${title}.`;
+                        break;
+                    case "profile":
+                        msg = `Viewing full faculty profile and contact information.`;
+                        break;
+                    case "action":
+                        msg = `Accessing ${title} portal.`;
+                        break;
+                    case "catalog":
+                        msg = `Enrollment request initiated for this course.`;
+                        break;
+                    case "grades":
+                        msg = `Fetching detailed grading rubric and feedback for ${title}.`;
+                        break;
+                    case "calendar":
+                        msg = `Viewing agenda and tasks for ${title}.`;
+                        break;
+                    default:
+                        msg = `Action processed successfully.`;
+                }
+                showDialog(title, msg);
+            }
         });
     });
 
@@ -104,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if(settingsForm) {
         settingsForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            alert("Settings saved successfully.");
+            showDialog("Settings Saved", "Your account preferences have been updated successfully.");
         });
     }
 });
